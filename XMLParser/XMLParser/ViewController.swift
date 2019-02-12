@@ -8,49 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, XMLParserDelegate {
+struct Weather : Decodable {
+    let country:String
+    let weather:String
+    let temperature:String
+}
 
-    var datalist = [[String:String]]()
-    var detaildata = [String:String]()
-    var elementTemp:String = ""
-    var blank:Bool = false
+class ViewController: UIViewController, UITableViewDataSource {
     
+    var datalist = [Weather]()
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let urlString = "https://raw.githubusercontent.com/ChoiJinYoung/iphonewithswift2/master/weather.xml"
-        
-        guard let baseURL = URL(string: urlString) else {
-            print("URL error")
-            return
-        }
-        guard let parser = XMLParser(contentsOf: baseURL) else {
-            print("XML error")
-            return
-        }
-        parser.delegate = self;
-        if !parser.parse() {
-            print("parser error")
-            return
-        }
-    }
-    
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if blank == true && elementTemp != "local" && elementTemp != "weatherinfo"{
-            detaildata[elementTemp] = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        }
-    }
-    
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        elementTemp = elementName
-        blank = true
-    }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == "local" {
-            datalist += [detaildata]
-        }
-        blank = false
+       
+        let jsonURLString = "https://raw.githubusercontent.com/ChoiJinYoung/iphonewithswift2/master/swift4weather.json"
+        guard let jsonURL = URL(string:jsonURLString) else {return}
+        URLSession.shared.dataTask(with: jsonURL, completionHandler: {(data,response,error) -> Void in
+            guard let data = data else {return}
+            
+            do{
+                self.datalist = try JSONDecoder().decode([Weather].self, from: data)
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }catch{
+                print("Parsing error \(error)")
+            }
+        }).resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,12 +46,12 @@ class ViewController: UIViewController, UITableViewDataSource, XMLParserDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WeatherCell
         
-        var dicTemp = datalist[indexPath.row]
+        let dicTemp = datalist[indexPath.row]
         
-        let weatherStr = dicTemp["weather"]
-        cell.countryLabel.text = dicTemp["country"]
+        let weatherStr = dicTemp.weather
+        cell.countryLabel.text = dicTemp.country
         cell.weatherLabel.text = weatherStr
-        cell.temperatureLabel.text = dicTemp["temperature"]
+        cell.temperatureLabel.text = dicTemp.temperature
         if weatherStr == "맑음" {
         
         }
