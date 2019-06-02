@@ -40,3 +40,11 @@ Equal Heights
 
 관계 설정은 마우스 오른쪽 클릭으로 이동 설정        
 Edit 상세 뷰에서 Equal Width에서 값 변경은 관계의 폭 값의 변경이 있음.         
+
+## Align        
+두개의 오브젝트 이상 정렬 가능. 아 배고프다        
+Leading Edges        
+Trailing Edges        
+Top Edges        
+Bottom Edges        
+
