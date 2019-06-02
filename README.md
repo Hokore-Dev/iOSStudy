@@ -29,3 +29,14 @@ Horizontally in Container
 Vertically in Container         
 둘다 부모 뷰로 정렬함        
 
+## Constraints Equal
+2개 이상의 뷰를 둘때 다른 하나의 constraints 만 걸었을때 오류남,        
+크기에 대한 정의도 필요함        
+
+Equal Widths        
+Equal Heights        
+같은 크기로 다중 오브젝트를 설정함        
+추론 할 수 있는 대상은 따로 오류를 생성하지 않음 (사이에 있는 오브젝트의 경우)        
+
+관계 설정은 마우스 오른쪽 클릭으로 이동 설정        
+Edit 상세 뷰에서 Equal Width에서 값 변경은 관계의 폭 값의 변경이 있음.         
