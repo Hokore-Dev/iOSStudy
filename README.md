@@ -62,3 +62,7 @@ Option누르면 간격 보여줌
 시작 포인트 * 배율 + constant        
 상대적인 개념이기때문에 관계에 대한 크기만 설정가능        
 
+## Margin        
+Constrains 설정할때 Constrains Margins 를 누르면 자동으로 추가된다.        
+Size Inspector 에서 Layout Margins에서 값을 조정할 수 있다.        
+Language Directional 언어 시작 관련 Leading Trailing Margin 처리        
