@@ -65,4 +65,13 @@ Option누르면 간격 보여줌
 ## Margin        
 Constrains 설정할때 Constrains Margins 를 누르면 자동으로 추가된다.        
 Size Inspector 에서 Layout Margins에서 값을 조정할 수 있다.        
-Language Directional 언어 시작 관련 Leading Trailing Margin 처리        
+Language Directional 언어 시작 관련 Leading Trailing Margin 처리      
+
+## StackView        
+Alignment : 내부 뷰에서의 정렬 Fill 은 크기에 맞게 맞춤 나머지는 위 중간 아래        
+Distribution : 크기에 대한 처리 내용         
+Fill Equally 같은 크기로 채움        
+Equal Spacing 빈 공간만 보고 채움 빈공간의 크기를 동일하게 잡음        
+Fill 채우지만 간격과 우선순위의 영향을 받음        
+Equal Centering 컨텐츠의 가운데를 기준으로 맞춤        
+Fill Proportionally 비율적으로 커짐        
