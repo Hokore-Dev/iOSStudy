@@ -75,3 +75,8 @@ Equal Spacing 빈 공간만 보고 채움 빈공간의 크기를 동일하게 �
 Fill 채우지만 간격과 우선순위의 영향을 받음        
 Equal Centering 컨텐츠의 가운데를 기준으로 맞춤        
 Fill Proportionally 비율적으로 커짐        
+
+## Button        
+위 아래 여백이 있음        
+버튼은 Inset으로 내부를 조정할 수 있음        
+컨텐츠와의 간격을 지정하는 것        
