@@ -80,3 +80,7 @@ Fill Proportionally 비율적으로 커짐
 위 아래 여백이 있음        
 버튼은 Inset으로 내부를 조정할 수 있음        
 컨텐츠와의 간격을 지정하는 것        
+
+## Image        
+@2X @3X로 기기별 해상도에 맞춘 이미지를 사용할 수 있음        
+[https://developer.apple.com/design/human-interface-guidelines/](https://developer.apple.com/design/human-interface-guidelines/)        
